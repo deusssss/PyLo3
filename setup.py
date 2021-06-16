@@ -16,9 +16,9 @@ setup(
       ],
   classifiers=[
     'Development Status :: 5 - Production/Stable',
-    'Intended Audience :: Students',
+    'Intended Audience :: Developers',
     'Topic :: Software Development :: Build Tools',
-    'License :: OSI Approved :: cc0-1.0 License',
+    'License :: CC0 1.0 Universal (CC0 1.0) Public Domain Dedication',
     'Programming Language :: Python :: 3.6',
     'Programming Language :: Python :: 3.8',
   ],
