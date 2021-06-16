@@ -10,7 +10,7 @@ setup(
   url = 'https://github.com/deusssss/PyLo3',
   download_url = 'https://github.com/deusssss/PyLo3/archive/refs/tags/1.0.tar.gz',
   keywords = ["biopython", "philogenetic analysis", "web application", "python server", "university project", "bioinformatics"],
-  install_requires=[            
+  install_requires=[
           'matplotlib',
           'biopython',
       ],
@@ -19,7 +19,6 @@ setup(
     'Intended Audience :: Developers',
     'Topic :: Software Development :: Build Tools',
     'License :: CC0 1.0 Universal (CC0 1.0) Public Domain Dedication',
-    'Programming Language :: Python :: 3.6',
-    'Programming Language :: Python :: 3.8',
+    'Programming Language :: Python'
   ],
 )
