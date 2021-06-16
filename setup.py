@@ -8,7 +8,7 @@ setup(
   author = "Lorenzo D'Eusebio",                 
   author_email = 'deusebiolorenzo@gmail.com',     
   url = 'https://github.com/deusssss/PyLo3',  
-  download_url = 'https://github.com/deusssss/PyLo3/archive/refs/tags/1.0.tar.gz',  
+  download_url = 'https://github.com/user/reponame/archive/v_01.tar.gz',    # I explain this later on
   keywords = ["biopython", "philogenetic analysis", "web application", "python server", "university project", "bioinformatics"],   
   install_requires=[            # I get to this in a second
           'matplotlib',
