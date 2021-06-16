@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="it">
+
+  <head>
+    <link rel="stylesheet" href="stili.css"  type="text/css">
+    <title>Analisi Filogenetica</title>
+    <script type="text/javascript" src="javascript.js"></script>
+
+  </head>
+
+  <body onload="exit()">
+
+      <h1>
+        Analisi filogenetica
+      </h1>
+      <img src="res/pylo.jpg" title="esempio di albero filogenetico">
+
+    <br><br>
+
+    <table>
+      <tr>
+        <td><button Type="button" onmouseover = "mouseOver('prova')" onmouseout = "mouseOut()" onclick = "clickButton('prova')">Sequenze di prova</button></td>
+        <td><button Type="button" onmouseover = "mouseOver('carica')" onmouseout = "mouseOut()" onclick = "clickButton('carica')">Carica sequenze</button></td>
+        <td><button Type="button" onmouseover = "mouseOver('entrez')" onmouseout = "mouseOut()" onclick = "clickButton('entrez')">Ricerca su NCBI</button></td>
+      </tr>
+    </table>
+
+    <div id="div1">
+      <i>passa il mouse su un pulsante per averne la descrizione!</i>
+    </div>
+
+
+    <div id="div2">
+      <div class="closebutton">
+        <button Type = "button"  onclick = "exit()">X</button>
+      </div>
+
+      <form action="HTTP:127.0.0.1:8080" method="post">
+        <h3> </h3>
+        <input type="submit" value="Avvia!" name="prova">
+      </form>
+
+    </div>
+
+    <div id="div3">
+      <div class="closebutton">
+        <button Type = "button"  onclick = "exit()">X</button>
+    </div>
+
+
+    <form action="HTTP:127.0.0.1:8080" method="post">
+      <h3> </h3>
+        <input type="submit" value="Avvia!" name="carica">
+      </form>
+
+
+    </div>
+
+
+    <div id="div4">
+      <div class="closebutton">
+        <button Type = "button"  onclick = "exit()">X</button>
+      </div>
+
+      <form action="HTTP:127.0.0.1:8080" method="post">
+        <h3> </h3>
+        <label for="p1">Inserisci la tua mail per NCBI</label>
+          <input type="text" id="p1" name="entrez.mail"><br><br>
+        <label for="p2">Inserisci gli accession number, separati da virgole</label>
+          <input type="text" id="p1" name="entrez.accession"><br><br>
+        <input type="submit" value="Avvia!">
+      </form>
+
+
+    </div>
+
+
+  
+  </body>
+
+</html>
