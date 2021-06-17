@@ -40,8 +40,8 @@ function exit(){
 
 }
 
-function writefile(form){
+function loading(){
 
-  var reader = new FileReader();
-  reader.readAsText(file);
+  document.getElementById("square").src = "res/gifs/".concat(Math.floor(Math.random() * 19)).concat(".gif");
+  document.getElementById("audio").play();
 }

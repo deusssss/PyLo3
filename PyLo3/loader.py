@@ -40,6 +40,7 @@ class MyServer(BaseHTTPRequestHandler):
         
         coms=post_body.decode('UTF-8')
         
+        
         if("prova" in coms):
             URL=Analisi("prova")
             
@@ -61,10 +62,13 @@ class MyServer(BaseHTTPRequestHandler):
             URL=Analisi("entrez", mail=email, seqs=accs)
         
         
+        
         self.send_response(200)
+        
         self.send_header('Content-type', 'image/png')
         self.end_headers()
         self.wfile.write(open(URL, "rb").read())
+        
         
 
 

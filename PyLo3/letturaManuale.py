@@ -17,7 +17,9 @@ def letturaManuale( seqs, outf="", n=""):
         
     t=[]
     for seq in seqs:
-        t.append(SeqIO.read(seq, "fasta"))
+        with open(seq) as handle:
+            for record in SeqIO.parse(handle, "fasta"):
+                t.append(record)
     
 
     SeqIO.write(t, outfile, "fasta")

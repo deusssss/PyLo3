@@ -13,7 +13,7 @@
       <h1>
         Analisi filogenetica
       </h1>
-      <img src="res/pylo.jpg" title="esempio di albero filogenetico">
+      <img  id="square" src="res/pylo.jpg" >
 
     <br><br>
 
@@ -28,8 +28,9 @@
     <div id="div1">
       <i>passa il mouse su un pulsante per averne la descrizione!</i>
     </div>
-
-
+    <table>
+      <tr>
+<td>
     <div id="div2">
       <div class="closebutton">
         <button Type = "button"  onclick = "exit()">X</button>
@@ -37,11 +38,12 @@
 
       <form action="HTTP:127.0.0.1:8080" method="post">
         <h3> </h3>
-        <input type="submit" value="Avvia!" name="prova">
+        <input type="submit" value="Avvia!" name="prova" onclick="loading()"><br>
       </form>
 
     </div>
-
+  </td>
+  <td>
     <div id="div3">
       <div class="closebutton">
         <button Type = "button"  onclick = "exit()">X</button>
@@ -50,12 +52,13 @@
 
     <form action="HTTP:127.0.0.1:8080" method="post">
       <h3> </h3>
-        <input type="submit" value="Avvia!" name="carica">
+        <input type="submit" value="Carica i files!" name="carica" onclick="loading()"><br>
       </form>
 
 
     </div>
-
+  </td>
+  <td>
 
     <div id="div4">
       <div class="closebutton">
@@ -68,14 +71,18 @@
           <input type="text" id="p1" name="entrez.mail"><br><br>
         <label for="p2">Inserisci gli accession number, separati da virgole</label>
           <input type="text" id="p1" name="entrez.accession"><br><br>
-        <input type="submit" value="Avvia!">
+        <input type="submit" value="Avvia la ricerca!" onclick="loading()"><br>
       </form>
 
 
     </div>
+  </td>
+  </tr>
+</table>
 
-
-  
+<audio controls id="audio">
+  <source src="res/waitmusic.mp3"  type="audio/mp3">
+</audio>
   </body>
 
 </html>
