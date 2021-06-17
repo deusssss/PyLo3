@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title> Risultati </title>
+    <style>
+      iframe{
+        margin-left: auto;
+        margin-right: auto;
+        width: 1000%;
+      }
+        h1{
+          font-size:40px;
+          text-align: center;
+          color: orange;
+        }
+        img{
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 100%;
+          height: 100%;
+        }
+        
+
+    </style>
+    <title>Analisi Filogenetica</title>
+    <script type="text/javascript" src="javascript.js"></script>
+  </head>
+
+  <body>
+    <h1>
+        Analisi filogenetica
+    </h1>
+    <label for="albero">albero filogenetico:</label>
+    <img id="albero" src="HTTP:127.0.0.1:8080/albero"><br>
+    <label for="seqs">Sequenze allineate:
+    <iframe id="seqs" src="HTTP:127.0.0.1:8080/sequenze"  title="Sequenze inserite"></iframe><br>
+    <label for="allineamento">Allineamento:
+    <iframe id="allineamento" src="HTTP:127.0.0.1:8080/allineamento"  title="Allineamento"></iframe><br>
+  </body>
+
+</html>

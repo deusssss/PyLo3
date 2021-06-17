@@ -1,0 +1,39 @@
+body {
+  font-size:14px;
+  font-family:Arial;
+}
+
+h1 {
+  font-size:40px;
+  text-align: center;
+  color: orange;
+}
+h3 {
+  font-size:20px;
+  text-align: center;
+  color: black;
+}
+
+input{
+  font-size: 20px;
+}
+
+img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+}
+
+
+form{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+  border: 10px cyan;
+  padding: 20px;
+  border-style: inset;
+  border-style: outset;
+
+}
