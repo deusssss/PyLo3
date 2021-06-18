@@ -1,0 +1,2 @@
+id: NC_034440.1->nome: NC_034440.1->descrizione: NC_034440.1 |Bat coronavirus isolate PREDICT/PDF-2180, complete genome
+id: NC_048212.1->nome: NC_048212.1->descrizione: NC_048212.1 |Bat coronavirus, complete genome

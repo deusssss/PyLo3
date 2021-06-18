@@ -23,28 +23,41 @@ import os
 
 def letturaEntrez( mail, seqs ):                                                                                                                #metodo di lettura delle sequenze da NCBI, accession numbers specificati in seqs
     outfile = "res/out.fasta"                                                                                                                   #percorso del file di output
+    data = "res/data.txt"                                                                                                                       #percorso del file di memorizzazione dati
     Entrez.email = mail                                                                                                                         #assegnazione della mail per la connessione al database 
     t=[]                                                                                                                                        #lista temporanea per il contenimento delle sequenze
+    n=[]                                                                                                                                        #lista temporanea per il contenimento dei dati relativi alle sequenze
     for seq in seqs:                                                                                                                            #ripeti per ogni accession number specificato
         with Entrez.efetch( db = "nucleotide", id = seq, rettype = "fasta", retmode = "text") as handle:                                        #connessione al database e recupero files
                 seq_record = SeqIO.parse(handle, "fasta")                                                                                       #lettura dei singoli files
                 for record in seq_record:                                                                                                       #ripeti per ogni sequenza all'interno di un singolo file
+                    record.id = record.description.replace(" ", "_")                                                                            #modifica l'ID della sequenza per avere chiarezza alla stampa
+                    n.append( "id: " + record.id + "->nome: " + record.name + "->descrizione: " + record.description + "\n")                    #memorizza i dati relativi alla sequenza
                     t.append( record )                                                                                                          #aggiungi la sequenza a t
-    SeqIO.write(t, outfile, "fasta")                                                                                                            #salva il contenuto di t nel file dedicato
-
-
+    SeqIO.write( t, outfile, "fasta" )                                                                                                          #salva il contenuto di t nel file dedicato         
+    f = open( data, "w" )                                                                                                                       #apri il file contenente i dati della sequenza
+    for i in n:                                                                                                                                 #per ogni elemento di n
+        f.write( i )                                                                                                                            #scrivilo sul file
+    f.close()                                                                                                                                   #chiudi il file
 
 
 
 def letturaManuale( seqs ):                                                                                                                     #metodo di lettura delle sequenze da file, percorso specificato in seqs
-    outfile = "res/out.fasta"                                                                                                                   #file di output
+    outfile = "res/out.fasta"                                                                                                                   #percorso del file di output
+    data = "res/data.txt"                                                                                                                       #percorso del file di memorizzazione dati
     t=[]                                                                                                                                        #lista temporanea per il contenimento delle sequenze
+    n=[]                                                                                                                                        #lista temporanea per il contenimento dei dati relativi alle sequenze
     for seq in seqs:                                                                                                                            #ripeti per ogni percorso specificato
         with open( seq ) as handle:                                                                                                             #apri il file 
             for record in SeqIO.parse( handle, "fasta" ):                                                                                       #per ogni sequenza all'interno del singolo file
+                n.append( "id: " + record.id + "->nome: " + record.name + "->descrizione: " + record.description + "\n")                        #memorizza i dati relativi alla sequenza
                 t.append( record )                                                                                                              #aggiungi la sequenza a t
-    SeqIO.write(t, outfile, "fasta")                                                                                                            #salva il contenuto di t nel file dedicato
-
+    SeqIO.write( t, outfile, "fasta" )                                                                                                          #salva il contenuto di t nel file dedicato
+    f = open( data, "w" )                                                                                                                       #apri il file contenente i dati della sequenza
+    for i in n:                                                                                                                                 #per ogni elemento di n
+        f.write( i )                                                                                                                            #scrivilo sul file
+    f.close()                                                                                                                                   #chiudi il file
+    
 
 
 
@@ -77,7 +90,7 @@ def maketree():                                                                 
     constructor = DistanceTreeConstructor( calculator )                                                                                         #dal calcolo precedente calcola le posizioni dei rami dell'albero
     albero = constructor.build_tree( align )                                                                                                    #usa i calcoli precedenti per costruire l'albero filogenetico  
     Phylo.write( albero, xml_file, "phyloxml" )                                                                                                 #salva il codice XML dell'albero nel percorso specificato
-    fig = plt.figure( figsize = ( 13, 5 ) )                                                                                                     #tramite matplotlib disegna uno schema vuoto
+    fig = plt.figure( figsize = ( 50, 25 ) )                                                                                                    #tramite matplotlib disegna uno schema vuoto
     matplotlib.rc( 'font', size = 12 )                                                                                                          #font di nodi e foglie
     matplotlib.rc( 'xtick', labelsize = 10 )                                                                                                    #font dell' etichetta dell'asse x
     matplotlib.rc( 'ytick', labelsize = 10 )                                                                                                    #font dell' etichetta dell'asse y
@@ -122,6 +135,10 @@ class MyServer( BaseHTTPRequestHandler ):                                       
             self.send_header( 'Content-type', 'text/aln' )                                                                                      #imposta l'header per trasmetter un file aln
             self.end_headers()                                                                                                                  #fine degli header
             self.wfile.write( open( "res/conversione.aln", "rb" ).read() )                                                                      #apri il file dell'allineamento, leggilo ed invialo
+        elif self.path.endswith( 'data' ):                                                                                                      #se è richiesto un file di dati
+            self.send_header( 'Content-type', 'text/txt' )                                                                                      #imposta l'header per trasmetter un file txt
+            self.end_headers()                                                                                                                  #fine degli header
+            self.wfile.write( open( "res/data.txt", "rb" ).read() )                                                                             #apri il file dei dati, leggilo ed invialo
                         
     def do_POST( self ):                                                                                                                        #metodo per la gestione delle richieste in formato POST
         content_len = int( self.headers.get( 'Content-Length' ).split( "\n" )[0] )                                                              #recupera l'header della richiesta
