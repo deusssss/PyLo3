@@ -14,6 +14,10 @@
           text-align: center;
           color: orange;
         }
+          h2{
+            font-size:40px;
+            text-align: center;
+            }
         img{
           display: block;
           margin-left: auto;
@@ -30,7 +34,7 @@
 
   <body>
     <h1>
-        Analisi filogenetica
+      Analisi filogenetica
     </h1>
     <label for="albero">albero filogenetico: <a href="HTTP:127.0.0.1:8080/albero" download="tree.png">(Scarica!)</a></label>
     <img id="albero" src="HTTP:127.0.0.1:8080/albero"><br>
@@ -40,7 +44,9 @@
     <iframe id="allineamento" src="HTTP:127.0.0.1:8080/allineamento"  title="Allineamento"></iframe><br>
     <label for="data">Sequenze: <a href="HTTP:127.0.0.1:8080/data" download="dat.txt">(Scarica!)</a></label>
     <iframe id="data" src="HTTP:127.0.0.1:8080/data"  title="Sequenze"></iframe><br>
-
+    <h2>
+    <a href="HTTP:127.0.0.1:8080/zip" download="analisi.zip">Scarica tutti i dati</a>
+    </h2>
   </body>
 
 </html>

@@ -13,6 +13,7 @@ import tkinter as tk
 import webbrowser
 import matplotlib
 import subprocess
+import zipfile
 import Bio
 import os
 
@@ -139,6 +140,16 @@ class MyServer( BaseHTTPRequestHandler ):                                       
             self.send_header( 'Content-type', 'text/txt' )                                                                                      #imposta l'header per trasmetter un file txt
             self.end_headers()                                                                                                                  #fine degli header
             self.wfile.write( open( "res/data.txt", "rb" ).read() )                                                                             #apri il file dei dati, leggilo ed invialo
+        elif self.path.endswith( 'zip' ):                                                                                                       #se sono richiesi tutti i dati
+            self.send_header( 'Content-type', 'application/zip' )                                                                               #imposta l'header per trasmetter un file zip
+            self.end_headers()                                                                                                                  #fine degli header
+            zf = zipfile.ZipFile( "res/zip.zip", mode="w" )                                                                                     #crea un file zip
+            zf.write( "res/tree.png", compress_type=0)                                                                                          #aggiungi all'archivio l'albero
+            zf.write( "res/out.fasta", compress_type=0)                                                                                         #aggiungi all'archivio le sequenze
+            zf.write( "res/conversione.aln", compress_type=0)                                                                                   #aggiungi all'archivio l'allineamento
+            zf.write( "res/data.txt", compress_type=0)                                                                                          #aggiungi all'archivio i dati
+            zf.close()                                                                                                                          #chiudi il file zip
+            self.wfile.write( open( "res/zip.zip", "rb" ).read() )                                                                              #apri il file compresso, leggilo ed invialo
                         
     def do_POST( self ):                                                                                                                        #metodo per la gestione delle richieste in formato POST
         content_len = int( self.headers.get( 'Content-Length' ).split( "\n" )[0] )                                                              #recupera l'header della richiesta
