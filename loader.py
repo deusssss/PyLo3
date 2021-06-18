@@ -32,7 +32,7 @@ def letturaEntrez( mail, seqs ):                                                
                 seq_record = SeqIO.parse(handle, "fasta")                                                                                       #lettura dei singoli files
                 for record in seq_record:                                                                                                       #ripeti per ogni sequenza all'interno di un singolo file
                     record.id = record.description.replace(" ", "_")                                                                            #modifica l'ID della sequenza per avere chiarezza alla stampa
-                    n.append( "id: " + record.id + "->nome: " + record.name + "->descrizione: " + record.description + "\n")                    #memorizza i dati relativi alla sequenza
+                    n.append( "id: " + record.id + " -> nome: " + record.name + " -> descrizione: " + record.description + "\n")                #memorizza i dati relativi alla sequenza
                     t.append( record )                                                                                                          #aggiungi la sequenza a t
     SeqIO.write( t, outfile, "fasta" )                                                                                                          #salva il contenuto di t nel file dedicato         
     f = open( data, "w" )                                                                                                                       #apri il file contenente i dati della sequenza
@@ -50,7 +50,7 @@ def letturaManuale( seqs ):                                                     
     for seq in seqs:                                                                                                                            #ripeti per ogni percorso specificato
         with open( seq ) as handle:                                                                                                             #apri il file 
             for record in SeqIO.parse( handle, "fasta" ):                                                                                       #per ogni sequenza all'interno del singolo file
-                n.append( "id: " + record.id + "->nome: " + record.name + "->descrizione: " + record.description + "\n")                        #memorizza i dati relativi alla sequenza
+                n.append( "id: " + record.id + " -> nome: " + record.name + " -> descrizione: " + record.description + "\n")                    #memorizza i dati relativi alla sequenza
                 t.append( record )                                                                                                              #aggiungi la sequenza a t
     SeqIO.write( t, outfile, "fasta" )                                                                                                          #salva il contenuto di t nel file dedicato
     f = open( data, "w" )                                                                                                                       #apri il file contenente i dati della sequenza
