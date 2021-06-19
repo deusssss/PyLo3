@@ -19,7 +19,7 @@
 
     <form action="HTTP:127.0.0.1:8080" method="post">
       <p> Carica dal tuo computer i files FASTA contenenti le sequenze che vuoi analizzare</p>
-      <input type="submit" value="Carica!" name="carica!" onclick="loading()"><br>
+      <input type="submit" value="Carica!" name="carica!" onclick="loading()">
     </form>
 
     <h1>
@@ -29,9 +29,9 @@
     <form action="HTTP:127.0.0.1:8080" method="post">
       <p> Inserisci gli accession number delle sequenze che vuoi analizzare dal sito <a href="https://www.ncbi.nlm.nih.gov"> https://www.ncbi.nlm.nih.gov </a> </p>
       <label for="p1">Inserisci la tua mail per accedere a NCBI</label>
-        <input type="text" id="p1" name="entrez.mail"><br><br>
+        <input type="text" id="p1" name="entrez.mail"><br>
       <label for="p2">Inserisci gli accession number, separati da virgole</label>
-        <input type="text" id="p2" name="entrez.accession"><br><br>
+        <input type="text" id="p2" name="entrez.accession"><br>
       <input type="submit" value="Avvia la ricerca!" onclick="loading()"><br>
     </form>
 
@@ -41,11 +41,11 @@
     </h1>
 
     <form action="HTTP:127.0.0.1:8080" method="post">
-      <p> Inserisci gli accession number delle sequenze che vuoi analizzare dal sito <a href="https://www.ncbi.nlm.nih.gov"> https://www.ncbi.nlm.nih.gov </a> </p>
+      <p> Inserisci gli accession number delle sequenze che vuoi analizzare dal sito <a href="https://www.ncbi.nlm.nih.gov"> https://www.ncbi.nlm.nih.gov </a> e carica ulteriori files FASTA dal tuo computer</p>
       <label for="p1">Inserisci la tua mail per accedere a NCBI</label>
-        <input type="text" id="p1" name="ibrida.mail"><br><br>
+        <input type="text" id="p1" name="ibrida.mail"><br>
       <label for="p2">Inserisci gli accession number, separati da virgole</label>
-        <input type="text" id="p2" name="ibrida.accession"><br><br>
+        <input type="text" id="p2" name="ibrida.accession"><br>
       <p> Carica dal tuo computer i files FASTA che già possiedi!</p>
       <input type="submit" value="Carica e avvia la ricerca!" onclick="loading()"><br>
       </form>
@@ -54,7 +54,6 @@
 
     <img id="square" src="res/load.png" >
 
-    <br>
 
     creato da:<br>
     <a href="mailto:lorenzo.deusebio@student.univaq.it">lorenzo.deusebio@student.univaq.it</a><br>
