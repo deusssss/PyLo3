@@ -1,3 +1,7 @@
+id: MG916902.1 -> nome: MG916902.1 -> descrizione: MG916902.1 |Bat coronavirus BtCoV/Rh/YN2012 isolate BtCoV/Rh/YN2012_Rs4125, complete genome
+id: MG916903.1 -> nome: MG916903.1 -> descrizione: MG916903.1 |Bat coronavirus BtCoV/Rh/YN2012 isolate BtCoV/Rh/YN2012_Rs4259, complete genome
+id: MG916904.1 -> nome: MG916904.1 -> descrizione: MG916904.1 |Bat coronavirus BtCoV/Rh/YN2012 isolate BtCoV/Rh/YN2012_Ra13591, complete genome
+id: MW703458.1 -> nome: MW703458.1 -> descrizione: MW703458.1 |Bat coronavirus isolate PrC31, complete genome
 id: MZ397161.1 -> nome: MZ397161.1 -> descrizione: MZ397161.1 |Severe acute respiratory syndrome coronavirus 2 isolate SARS-CoV-2/human/BRA/684/2020, complete genome
 id: MZ169910.1 -> nome: MZ169910.1 -> descrizione: MZ169910.1 |Severe acute respiratory syndrome coronavirus 2 isolate SARS-CoV-2/human/BRA/1061/2021, complete genome
 id: MT844030.1 -> nome: MT844030.1 -> descrizione: MT844030.1 |Severe acute respiratory syndrome coronavirus 2 isolate SARS-CoV-2/human/BRA/RJ-DCVN4/2020, complete genome

@@ -88,7 +88,7 @@ def maketree():                                                                 
     with open( in_file, "r" ) as aln:                                                                                                           #apri il file di input
         align = AlignIO.read( aln,"clustal" )                                                                                                   #mettine il contenuto in una variabile
     calculator = DistanceCalculator( 'blosum62' )                                                                                               #usa la matrice BLOSUM per calcolare la distanza fra le sequenze
-    constructor = DistanceTreeConstructor( calculator )                                                                                         #dal calcolo precedente calcola le posizioni dei rami dell'albero
+    constructor = DistanceTreeConstructor( calculator , "upgma")                                                                                         #dal calcolo precedente calcola le posizioni dei rami dell'albero
     albero = constructor.build_tree( align )                                                                                                    #usa i calcoli precedenti per costruire l'albero filogenetico  
     Phylo.write( albero, xml_file, "phyloxml" )                                                                                                 #salva il codice XML dell'albero nel percorso specificato
     fig = plt.figure( figsize = ( 50, 25 ) )                                                                                                    #tramite matplotlib disegna uno schema vuoto
