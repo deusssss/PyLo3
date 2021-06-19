@@ -62,7 +62,34 @@ def letturaManuale( seqs ):                                                     
 
 
 
-
+def letturaIbrida( mail, seqs , access ):                                                                                                       #metodo di lettura delle sequenze da file, percorso specificato in seqs e delle sequenze da NCBI, accession numbers specificati in access
+    outfile = "res/out.fasta"                                                                                                                   #percorso del file di output
+    data = "res/data.txt"                                                                                                                       #percorso del file di memorizzazione dati
+    Entrez.email = mail                                                                                                                         #assegnazione della mail per la connessione al database 
+    t=[]                                                                                                                                        #lista temporanea per il contenimento delle sequenze
+    n=[]                                                                                                                                        #lista temporanea per il contenimento dei dati relativi alle sequenze
+    for seq in access:                                                                                                                          #ripeti per ogni accession number specificato
+        with Entrez.efetch( db = "nucleotide", id = seq, rettype = "fasta", retmode = "text") as handle:                                        #connessione al database e recupero files
+                seq_record = SeqIO.parse(handle, "fasta")                                                                                       #lettura dei singoli files
+                for record in seq_record:                                                                                                       #ripeti per ogni sequenza all'interno di un singolo file
+                    record.id = record.description.replace(" ", "_")                                                                            #modifica l'ID della sequenza per avere chiarezza alla stampa
+                    n.append( "id: " + record.id + " -> nome: " + record.name + " -> descrizione: " + record.description + "\n")                #memorizza i dati relativi alla sequenza
+                    t.append( record )                                                                                                          #aggiungi la sequenza a t
+    for seq in seqs:                                                                                                                            #ripeti per ogni percorso specificato
+        with open( seq ) as handle:                                                                                                             #apri il file 
+            for record in SeqIO.parse( handle, "fasta" ):                                                                                       #per ogni sequenza all'interno del singolo file
+                n.append( "id: " + record.id + " -> nome: " + record.name + " -> descrizione: " + record.description + "\n")                    #memorizza i dati relativi alla sequenza
+                t.append( record )                                                                                                              #aggiungi la sequenza a t
+    SeqIO.write( t, outfile, "fasta" )                                                                                                          #salva il contenuto di t nel file dedicato         
+    f = open( data, "w" )                                                                                                                       #apri il file contenente i dati della sequenza
+    for i in n:                                                                                                                                 #per ogni elemento di n
+        f.write( i )         
+    
+    
+    
+    
+    
+    
 #fase 2: allineamento delle sequenze
 
 def allineamento():                                                                                                                             #metodo di allineamento
@@ -88,7 +115,7 @@ def maketree():                                                                 
     with open( in_file, "r" ) as aln:                                                                                                           #apri il file di input
         align = AlignIO.read( aln,"clustal" )                                                                                                   #mettine il contenuto in una variabile
     calculator = DistanceCalculator( 'blosum62' )                                                                                               #usa la matrice BLOSUM per calcolare la distanza fra le sequenze
-    constructor = DistanceTreeConstructor( calculator , "upgma")                                                                                         #dal calcolo precedente calcola le posizioni dei rami dell'albero
+    constructor = DistanceTreeConstructor( calculator , "upgma")                                                                                #dal calcolo precedente calcola le posizioni dei rami dell'albero
     albero = constructor.build_tree( align )                                                                                                    #usa i calcoli precedenti per costruire l'albero filogenetico  
     Phylo.write( albero, xml_file, "phyloxml" )                                                                                                 #salva il codice XML dell'albero nel percorso specificato
     fig = plt.figure( figsize = ( 50, 25 ) )                                                                                                    #tramite matplotlib disegna uno schema vuoto
@@ -110,7 +137,10 @@ def Analisi( tipoLettura, mail="", seqs="", file=[] ):                          
         letturaManuale( file )                                                                                                                  #esegui una lettura dai files specificati
     elif ( tipoLettura == "entrez" ):                                                                                                           #se è stata scelta un'analisi da accession number di NCBI
         seqs = seqs.replace( " ", "" ).split( "," )                                                                                             #rimuovi eventuali spazi dalla stringa e trasformala in un arraydi singole stringhe
-        letturaEntrez( mail, seqs )                                                                                                             #esegui download e lettura dai files specificati          
+        letturaEntrez( mail, seqs )                                                                                                             #esegui download e lettura dai files specificati             
+    elif ( tipoLettura == "ibrida" ):                                                                                                           #se è stata scelta un'analisi da file locali e sequenze
+        seqs = seqs.replace( " ", "" ).split( "," )                                                                                             #rimuovi eventuali spazi dalla stringa e trasformala in un arraydi singole stringhe
+        letturaIbrida( mail, file, seqs )                                                                                                       #esegui download e lettura dai files specificati          
     allineamento()                                                                                                                              #esegui l'allineamento delle sequenze
     maketree()                                                                                                                                  #crea l'albero filogenetico
 
@@ -165,6 +195,13 @@ class MyServer( BaseHTTPRequestHandler ):                                       
             email = ( ( ( unquote( coms ).replace( "+", "" ) ).split( "&" ) )[0] )[12:]                                                         #recupera l'email dalla richiesta
             accs = ( ( ( unquote( coms ).replace( "+", "") ) .split( "&" ) )[1] )[17:]                                                          #recupera gli accession number dalla richiesta            
             Analisi( "entrez", mail = email, seqs = accs )                                                                                      #avvia l'analisi per files remoti
+        elif( "ibrida" in coms ):                                                                                                               #se è stata richiesta una lettura di files remoti e locali
+            root = tk.Tk()                                                                                                                      #crea una finestra
+            root.withdraw()                                                                                                                     #nascondi la finestra vuota     
+            files = filedialog.askopenfilename( title = "Scegli i files FASTA", filetypes = [( "fasta files","*.fasta" )], multiple = True )    #imposta la finestra per richiedere l'inserimento di files FASTA
+            email = ( ( ( unquote( coms ).replace( "+", "" ) ).split( "&" ) )[0] )[12:]                                                         #recupera l'email dalla richiesta
+            accs = ( ( ( unquote( coms ).replace( "+", "") ) .split( "&" ) )[1] )[17:]                                                          #recupera gli accession number dalla richiesta            
+            Analisi( "ibrida", mail = email, seqs = accs, file = files)                                                                         #avvia l'analisi per files ibridi
         self.send_response( 200 )                                                                                                               #rispondi 200:OK
         self.send_header( 'Content-type', "text/html" )                                                                                         #imposta l'header per trasmetter un file HTML
         self.end_headers()                                                                                                                      #fine degli header

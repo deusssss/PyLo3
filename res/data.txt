@@ -1,14 +1,2 @@
-id: MG916902.1 -> nome: MG916902.1 -> descrizione: MG916902.1 |Bat coronavirus BtCoV/Rh/YN2012 isolate BtCoV/Rh/YN2012_Rs4125, complete genome
-id: MG916903.1 -> nome: MG916903.1 -> descrizione: MG916903.1 |Bat coronavirus BtCoV/Rh/YN2012 isolate BtCoV/Rh/YN2012_Rs4259, complete genome
-id: MG916904.1 -> nome: MG916904.1 -> descrizione: MG916904.1 |Bat coronavirus BtCoV/Rh/YN2012 isolate BtCoV/Rh/YN2012_Ra13591, complete genome
-id: MW703458.1 -> nome: MW703458.1 -> descrizione: MW703458.1 |Bat coronavirus isolate PrC31, complete genome
-id: MZ397161.1 -> nome: MZ397161.1 -> descrizione: MZ397161.1 |Severe acute respiratory syndrome coronavirus 2 isolate SARS-CoV-2/human/BRA/684/2020, complete genome
-id: MZ169910.1 -> nome: MZ169910.1 -> descrizione: MZ169910.1 |Severe acute respiratory syndrome coronavirus 2 isolate SARS-CoV-2/human/BRA/1061/2021, complete genome
-id: MT844030.1 -> nome: MT844030.1 -> descrizione: MT844030.1 |Severe acute respiratory syndrome coronavirus 2 isolate SARS-CoV-2/human/BRA/RJ-DCVN4/2020, complete genome
-id: MT807936.1 -> nome: MT807936.1 -> descrizione: MT807936.1 |Severe acute respiratory syndrome coronavirus 2 isolate SARS-CoV-2/human/BRA/LRV-SARS.CoV-2.1/2020, complete genome
-id: MT126808.1 -> nome: MT126808.1 -> descrizione: MT126808.1 |Severe acute respiratory syndrome coronavirus 2 isolate SARS-CoV-2/human/BRA/SP02/2020, complete genome
-id: OD978165.1 -> nome: OD978165.1 -> descrizione: OD978165.1 |Severe acute respiratory syndrome coronavirus 2 genome assembly, complete genome: monopartite
-id: OD955523.1 -> nome: OD955523.1 -> descrizione: OD955523.1 |Severe acute respiratory syndrome coronavirus 2 genome assembly, complete genome: monopartite
-id: OD950678.1 -> nome: OD950678.1 -> descrizione: OD950678.1 |Severe acute respiratory syndrome coronavirus 2 genome assembly, complete genome: monopartite
-id: OB993359.1 -> nome: OB993359.1 -> descrizione: OB993359.1 |Severe acute respiratory syndrome coronavirus 2 genome assembly, complete genome: monopartite
-id: MT873892.1 -> nome: MT873892.1 -> descrizione: MT873892.1 |Severe acute respiratory syndrome coronavirus 2 isolate SARS-CoV-2/human/GBR/USAFSAM-S026/2020, complete genome
+id: MZ389933.1_Severe_acute_respiratory_syndrome_coronavirus_2_isolate_SARS-CoV-2/human/USA/MD-MDH-2365/2021,_complete_genome -> nome: MZ389933.1 -> descrizione: MZ389933.1 Severe acute respiratory syndrome coronavirus 2 isolate SARS-CoV-2/human/USA/MD-MDH-2365/2021, complete genome
+id: Sequenza4 -> nome: Sequenza4 -> descrizione: Sequenza4
