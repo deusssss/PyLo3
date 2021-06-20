@@ -1,15 +1,47 @@
 <phyloxml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.phyloxml.org" xsi:schemaLocation="http://www.phyloxml.org http://www.phyloxml.org/1.10/phyloxml.xsd">
   <phylogeny rooted="true">
     <clade>
-      <name>Inner1</name>
+      <name>Inner5</name>
       <branch_length>0</branch_length>
       <clade>
-        <name>Sequenza4</name>
-        <branch_length>0.022522522522522515</branch_length>
+        <name>Inner3</name>
+        <branch_length>0.050851387927516145</branch_length>
+        <clade>
+          <name>Inner1</name>
+          <branch_length>0.19590643274853803</branch_length>
+          <clade>
+            <name>Sequenza3</name>
+            <branch_length>0.1111111111111111</branch_length>
+          </clade>
+          <clade>
+            <name>Sequenza4</name>
+            <branch_length>0.1111111111111111</branch_length>
+          </clade>
+        </clade>
+        <clade>
+          <name>Sequenza1</name>
+          <branch_length>0.30701754385964913</branch_length>
+        </clade>
       </clade>
       <clade>
-        <name>MZ389933.1_Severe_acute_respir</name>
-        <branch_length>0.022522522522522515</branch_length>
+        <name>Inner4</name>
+        <branch_length>0.00221877698840367</branch_length>
+        <clade>
+          <name>Inner2</name>
+          <branch_length>0.0895211225406971</branch_length>
+          <clade>
+            <name>Sequenza6</name>
+            <branch_length>0.2661290322580645</branch_length>
+          </clade>
+          <clade>
+            <name>Sequenza2</name>
+            <branch_length>0.2661290322580645</branch_length>
+          </clade>
+        </clade>
+        <clade>
+          <name>Sequenza5</name>
+          <branch_length>0.3556501547987616</branch_length>
+        </clade>
       </clade>
     </clade>
   </phylogeny>
