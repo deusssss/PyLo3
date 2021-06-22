@@ -1,6 +1,1 @@
-id: Sequenza4 -> nome: Sequenza4 -> descrizione: Sequenza4
-id: Sequenza2 -> nome: Sequenza2 -> descrizione: Sequenza2
-id: Sequenza3 -> nome: Sequenza3 -> descrizione: Sequenza3
-id: Sequenza1 -> nome: Sequenza1 -> descrizione: Sequenza1
-id: Sequenza5 -> nome: Sequenza5 -> descrizione: Sequenza5
-id: Sequenza6 -> nome: Sequenza6 -> descrizione: Sequenza6
+id: OU217898.1 -> nome: OU217898.1 -> descrizione: OU217898.1 Severe acute respiratory syndrome coronavirus 2 genome assembly, chromosome: 1

@@ -32,7 +32,6 @@ def letturaEntrez( mail, seqs ):                                                
         with Entrez.efetch( db = "nucleotide", id = seq, rettype = "fasta", retmode = "text") as handle:                                        #connessione al database e recupero files
                 seq_record = SeqIO.parse(handle, "fasta")                                                                                       #lettura dei singoli files
                 for record in seq_record:                                                                                                       #ripeti per ogni sequenza all'interno di un singolo file
-                    record.id = record.description.replace(" ", "_")                                                                            #modifica l'ID della sequenza per avere chiarezza alla stampa
                     n.append( "id: " + record.id + " -> nome: " + record.name + " -> descrizione: " + record.description + "\n")                #memorizza i dati relativi alla sequenza
                     t.append( record )                                                                                                          #aggiungi la sequenza a t
     SeqIO.write( t, outfile, "fasta" )                                                                                                          #salva il contenuto di t nel file dedicato         
@@ -71,8 +70,7 @@ def letturaIbrida( mail, seqs , access ):                                       
     for seq in access:                                                                                                                          #ripeti per ogni accession number specificato
         with Entrez.efetch( db = "nucleotide", id = seq, rettype = "fasta", retmode = "text") as handle:                                        #connessione al database e recupero files
                 seq_record = SeqIO.parse(handle, "fasta")                                                                                       #lettura dei singoli files
-                for record in seq_record:                                                                                                       #ripeti per ogni sequenza all'interno di un singolo file
-                    record.id = record.description.replace(" ", "_")                                                                            #modifica l'ID della sequenza per avere chiarezza alla stampa
+                for record in seq_record:                                                                                                       #modifica l'ID della sequenza per avere chiarezza alla stampa
                     n.append( "id: " + record.id + " -> nome: " + record.name + " -> descrizione: " + record.description + "\n")                #memorizza i dati relativi alla sequenza
                     t.append( record )                                                                                                          #aggiungi la sequenza a t
     for seq in seqs:                                                                                                                            #ripeti per ogni percorso specificato
@@ -84,6 +82,7 @@ def letturaIbrida( mail, seqs , access ):                                       
     f = open( data, "w" )                                                                                                                       #apri il file contenente i dati della sequenza
     for i in n:                                                                                                                                 #per ogni elemento di n
         f.write( i )         
+    f.close()                                                                                                                                   #chiudi il file
     
     
     
