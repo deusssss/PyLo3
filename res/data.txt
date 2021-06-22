@@ -1,1 +1,2 @@
-id: OU217898.1 -> nome: OU217898.1 -> descrizione: OU217898.1 Severe acute respiratory syndrome coronavirus 2 genome assembly, chromosome: 1
+id: MZ389933.1 -> nome: MZ389933.1 -> descrizione: MZ389933.1 Severe acute respiratory syndrome coronavirus 2 isolate SARS-CoV-2/human/USA/MD-MDH-2365/2021, complete genome
+id: Sequenza4 -> nome: Sequenza4 -> descrizione: Sequenza4
