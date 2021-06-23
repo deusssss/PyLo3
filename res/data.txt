@@ -1,2 +1,6 @@
-id: MZ389933.1 -> nome: MZ389933.1 -> descrizione: MZ389933.1 Severe acute respiratory syndrome coronavirus 2 isolate SARS-CoV-2/human/USA/MD-MDH-2365/2021, complete genome
 id: Sequenza4 -> nome: Sequenza4 -> descrizione: Sequenza4
+id: Sequenza2 -> nome: Sequenza2 -> descrizione: Sequenza2
+id: Sequenza3 -> nome: Sequenza3 -> descrizione: Sequenza3
+id: Sequenza1 -> nome: Sequenza1 -> descrizione: Sequenza1
+id: Sequenza5 -> nome: Sequenza5 -> descrizione: Sequenza5
+id: Sequenza6 -> nome: Sequenza6 -> descrizione: Sequenza6
