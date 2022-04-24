@@ -230,5 +230,5 @@ def start():                                                                    
 
 
 #avvio del programma
-
-start()                                                                                                                                         #richiama il metodo avvio e dai inizio all'esecuzione
+if __name__ == '__main__':
+    start()                                                                                                                                         #richiama il metodo avvio e dai inizio all'esecuzione
